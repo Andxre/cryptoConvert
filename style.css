@@ -36,7 +36,7 @@ section {
 
 }
 
-.focus input, button {
+.focus input, select {
     width: 12rem;
     height: 5rem;
     border-radius: 12px;
@@ -46,6 +46,16 @@ section {
     margin: 0 1rem;
     font-weight: 200;
 }
+
+select:hover {
+    cursor: pointer;
+    background-color:lightgrey;
+}
+
+option {
+    text-align: center;
+}
+
 .coin-input {
     display: inline-block;
 }

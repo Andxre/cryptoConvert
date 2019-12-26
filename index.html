@@ -14,12 +14,19 @@
     </header>
     <section class="main-section">
         <div class ="focus">
-            <input type="text" class="coin-input" value="1">
-            <button class="coin-dropdown">BTC</button>
+            <input type="text" class="coin-input" id="coin-input">
+            <select class="coin-dropdown">
+                <option>BTC</option>
+                <option>ETH</option>
+            </select>
             <span class="equal">=</span>
-            <input type="text" class="currency-input" value="">
-            <button class="currency-dropdown">USD</button>
+            <input type="text" class="currency-input" id="currency-input">
+            <select class="currency-dropdown">
+                <option>USD</option>
+                <option>EUR</option>
+            </select>
         </div>
     </section>
 </body>
+<script src="index.js"></script>
 </html>
