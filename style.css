@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+
+body {
+    background-color: #263238;
+    font-family: Poppins, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: left;
+    margin: 0 3rem;
+}
+
+.logo-name {
+    font-family: Poppins, sans-serif;
+}
+
+.logo-name a {
+    text-decoration: none;
+    color: #FAFAFA;
+    font-size: 24px;
+}
+
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.focus {
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.focus input, button {
+    width: 12rem;
+    height: 5rem;
+    border-radius: 12px;
+    font-size: 48px;
+    text-align: center;
+    border-style: none;
+    margin: 0 1rem;
+    font-weight: 200;
+}
+.coin-input {
+    display: inline-block;
+}
+
+.equal {
+    font-size: 48px;
+    padding: 0 1rem;
+    color: #FAFAFA;
+    opacity: .75;
+}
