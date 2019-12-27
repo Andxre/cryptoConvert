@@ -1,3 +1,4 @@
+/* Poppins Font  */
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 
 body {
@@ -32,11 +33,9 @@ section {
 .focus {
     display: flex;
     justify-content: center;
-
-
 }
 
-.focus input, select {
+.focus select {
     width: 12rem;
     height: 5rem;
     border-radius: 12px;
@@ -45,6 +44,18 @@ section {
     border-style: none;
     margin: 0 1rem;
     font-weight: 200;
+}
+
+input {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 12px;
+    font-size: 48px;
+    text-align: center;
+    border-style: none;
+    margin: 0 1rem;
+    font-weight: 200;
+    transition: width 0.25s;
 }
 
 select:hover {
@@ -58,6 +69,10 @@ option {
 
 .coin-input {
     display: inline-block;
+}
+
+input:focus {
+    outline: none;
 }
 
 .equal {
