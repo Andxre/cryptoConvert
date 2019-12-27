@@ -1,6 +1,7 @@
 console.log("JS Loaded")
 const url = "https://api.coingecko.com/api/v3/coins/"
 
+//Functions
 // Using AJAX make call to the CoinGecko API
 function getCurrentPrice(quantity) {
     var xhr = new XMLHttpRequest();
@@ -37,13 +38,15 @@ function increaseSize(firstLength, secondLength, first, second) {
     document.getElementById(first).style.width = (baseWidth + firstLength*2) + "rem";
     document.getElementById(second).style.width = (baseWidth + secondLength*2) + "rem";
 }
+// End of Functions
 
 // Initiate default values to input boxes
-//document.getElementById("coin-input").value = "1";
-//document.getElementById("currency-input").value = getCurrentPrice(1);
+document.getElementById("coin-input").value = "1";
+getCurrentPrice(1);
+let secondLength = document.getElementById("currency-input").value;
+increaseSize(1, secondLength.length, "coin-input", "currency-input");
 
-
-// If user types number in input field, price changes
+// Event Listeners
 document.getElementById("coin-input").addEventListener("input", () => {
     let first = "coin-input";
     let second = "currency-input"
@@ -54,8 +57,10 @@ document.getElementById("coin-input").addEventListener("input", () => {
         document.getElementById(second).value = "";
         return;
     }
+    else if (isNaN(quantity)) {
+        return;
+    }
     console.log(quantity.length);
-    //increaseSize(quantity.length, change.length, first, second);
     getCurrentPrice(quantity);
     let change = document.getElementById(second).value;
     console.log("EventListener Length:" + change.length);
@@ -73,6 +78,9 @@ document.getElementById("currency-input").addEventListener("input", () => {
         document.getElementById(second).value = "";
         return;
     }
+    else if (isNaN(enteredPrice)) {
+        return;
+    }
     getCoinValue(enteredPrice);
     let change = document.getElementById(second).value;
     increaseSize(enteredPrice.length, change.length, first, second);
@@ -83,9 +91,9 @@ document.getElementById("currency-input").addEventListener("input", () => {
 
 /* 
 TODO
-1. Transitions when values change in input box
-2. Increase size of input box when number gets too big
 3. Media Queries
 4. Support for different coins
 5. Add a logo
+- Make site more responsive
+    - when boxes hit edge of screen, fix style
 */
