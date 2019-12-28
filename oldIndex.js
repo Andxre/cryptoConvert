@@ -6,13 +6,13 @@ let currentCoin = 'bitcoin';
 // Using AJAX make call to the CoinGecko API
 function getCurrentPrice(quantity) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/' + currentCoin, false);
+    xhr.open('GET', url + currentCoin, false);
     xhr.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(xhr.responseText);
             let price = data["market_data"]["current_price"]["usd"];
             let finalPrice = (price * quantity).toFixed(2)
-            document.getElementById("currency-input").value = numberWithCommas(finalPrice);2
+            document.getElementById("currency-input").value = numberWithCommas(finalPrice);
         }
     }
     xhr.send();    
@@ -20,7 +20,7 @@ function getCurrentPrice(quantity) {
 
 function getCoinValue(enteredPrice) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/' + currentCoin, false); 
+    xhr.open('GET', url + currentCoin, false); 
     xhr.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(xhr.responseText);
@@ -68,10 +68,8 @@ document.getElementById("coin-input").addEventListener("input", () => {
     else if (isNaN(quantity)) { // If Input is not a number don't do anything
         return;
     }
-    console.log(quantity.length);
     getCurrentPrice(quantity);
     let change = document.getElementById(second).value;
-    console.log("EventListener Length:" + change.length);
     increaseSize(quantity.length, change.length, first, second);
 });
 
