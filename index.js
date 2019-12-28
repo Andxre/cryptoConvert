@@ -1,11 +1,12 @@
 console.log("JS Loaded")
 const url = "https://api.coingecko.com/api/v3/coins/"
+let currentCoin = 'bitcoin';
 
 //Functions
 // Using AJAX make call to the CoinGecko API
 function getCurrentPrice(quantity) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/bitcoin', false);
+    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/' + currentCoin, false);
     xhr.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(xhr.responseText);
@@ -19,7 +20,7 @@ function getCurrentPrice(quantity) {
 
 function getCoinValue(enteredPrice) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/bitcoin', false); 
+    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/' + currentCoin, false); 
     xhr.onload = function() {
         if (this.readyState == 4 && this.status == 200) {
             let data = JSON.parse(xhr.responseText);
@@ -43,10 +44,15 @@ function increaseSize(firstLength, secondLength, first, second) {
 // End of Functions
 
 // Initiate default values to input boxes
-document.getElementById("coin-input").value = "1";
-getCurrentPrice(1);
-let secondLength = document.getElementById("currency-input").value;
-increaseSize(1, secondLength.length, "coin-input", "currency-input");
+function init() {
+    document.getElementById("coin-input").value = "1";
+    getCurrentPrice(1);
+    let secondLength = document.getElementById("currency-input").value;
+    increaseSize(1, secondLength.length, "coin-input", "currency-input");
+}
+
+init();
+
 
 // Event Listeners
 document.getElementById("coin-input").addEventListener("input", () => {
@@ -90,20 +96,22 @@ document.getElementById("currency-input").addEventListener("input", () => {
 
 });
 
+document.getElementById('current-coin').addEventListener("change", () => {
+    let symbol = document.getElementById('current-coin').value; 
+    console.log('Symbol: ' + symbol);
+    let coinObj = coins.find(coin => {
+        return coin.id == symbol.toLowerCase();
+    })
+    currentCoin = coinObj['name'];
+    init();
+})
+
 
 /* 
 TODO
 - Media Queries
-- Support for different coins
 - Make site more responsive
     - when boxes hit edge of screen, fix style
 */
 
 
-/*
-How to Implement DropDown Menu:
-1. Get option Value of Select
-2. Find full coin name of value
-3. Pass full coin name into getPrice() function
-
-*/
