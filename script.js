@@ -13,20 +13,15 @@ function makeAjaxCall(url, methodType) {
         xhr.onreadystatechange = function() {
             if (xhr.readyState === 4){
                 if (xhr.status === 200){
-                   console.log("xhr done successfully");
                    var resp = xhr.responseText;
                    var respJson = JSON.parse(resp);
                    resolve(respJson);
                 } 
                 else {
                    reject(xhr.status);
-                   console.log("xhr failed");
                 }
-            } else {
-                console.log("xhr processing going on");
             }
         }
-        console.log("request sent succesfully");
     });
     return promiseObj;
 }
@@ -85,6 +80,7 @@ function increaseSize(firstLength, secondLength, first, second) {
 }
 
 function coinChange() {
+    console.log("Called");
     let first = "coin-input";
     let second = "currency-input"
     let quantity = document.getElementById(first).value;
@@ -142,7 +138,6 @@ document.getElementById("currency-input").addEventListener("input", () => {
 document.getElementById('current-coin').addEventListener("change", () => {
     document.getElementById("currency-input").value = '...'; // Awaiting Response
     let symbol = document.getElementById('current-coin').value; 
-    console.log('Symbol: ' + symbol);
     let coinObj = coins.find(coin => {
         return coin.id == symbol.toLowerCase();
     })
@@ -153,3 +148,22 @@ document.getElementById('current-coin').addEventListener("change", () => {
 // Site Initalization
 loadCoins();
 init();
+setInterval(coinChange, 5000); // Check if price updates every 5 seconds
+console.log("Initialized");
+
+
+/* 
+TODO
+- Media Queries
+- Make site more responsive
+    - when boxes hit edge of screen, fix style
+- Add support for more currencies
+- Better Background
+- Powered by CoinGecko
+*/
+
+/*
+
+
+
+*/

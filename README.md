@@ -1,2 +1,4 @@
-# cryptoConvert
-A simple platform to convert cryptocurrency to dollar value.
+# CoinConvert
+A simple web platform to convert cryptocurrency to dollar value.
+
+

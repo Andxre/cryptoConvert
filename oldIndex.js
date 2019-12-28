@@ -105,11 +105,6 @@ document.getElementById('current-coin').addEventListener("change", () => {
 })
 
 
-/* 
-TODO
-- Media Queries
-- Make site more responsive
-    - when boxes hit edge of screen, fix style
-*/
+
 
 
