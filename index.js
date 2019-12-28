@@ -7,24 +7,26 @@ function getCurrentPrice(quantity) {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/bitcoin', false);
     xhr.onload = function() {
-        let data = JSON.parse(xhr.responseText);
-        let price = data["market_data"]["current_price"]["usd"];
-        let finalPrice = (price * quantity).toFixed(2)
-        document.getElementById("currency-input").value = numberWithCommas(finalPrice);
-        console.log(numberWithCommas(finalPrice));
-        console.log("Length:" + numberWithCommas(finalPrice).length)
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(xhr.responseText);
+            let price = data["market_data"]["current_price"]["usd"];
+            let finalPrice = (price * quantity).toFixed(2)
+            document.getElementById("currency-input").value = numberWithCommas(finalPrice);2
+        }
     }
     xhr.send();    
 }
 
 function getCoinValue(enteredPrice) {
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/bitcoin', false);
+    xhr.open('GET', 'https://api.coingecko.com/api/v3/coins/bitcoin', false); 
     xhr.onload = function() {
-        let data = JSON.parse(xhr.responseText);
-        let price = data["market_data"]["current_price"]["usd"];
-        let finalPrice = (enteredPrice / price).toFixed(7);
-        document.getElementById("coin-input").value = finalPrice;
+        if (this.readyState == 4 && this.status == 200) {
+            let data = JSON.parse(xhr.responseText);
+            let price = data["market_data"]["current_price"]["usd"];
+            let finalPrice = (enteredPrice / price).toFixed(7);
+            document.getElementById("coin-input").value = finalPrice;
+        }
     }
     xhr.send();  
 }
@@ -57,7 +59,7 @@ document.getElementById("coin-input").addEventListener("input", () => {
         document.getElementById(second).value = "";
         return;
     }
-    else if (isNaN(quantity)) {
+    else if (isNaN(quantity)) { // If Input is not a number don't do anything
         return;
     }
     console.log(quantity.length);
@@ -91,9 +93,17 @@ document.getElementById("currency-input").addEventListener("input", () => {
 
 /* 
 TODO
-3. Media Queries
-4. Support for different coins
-5. Add a logo
+- Media Queries
+- Support for different coins
 - Make site more responsive
     - when boxes hit edge of screen, fix style
+*/
+
+
+/*
+How to Implement DropDown Menu:
+1. Get option Value of Select
+2. Find full coin name of value
+3. Pass full coin name into getPrice() function
+
 */

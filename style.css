@@ -16,6 +16,12 @@ header {
     font-family: Poppins, sans-serif;
 }
 
+.logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 0.7rem;
+}
+
 .logo-name a {
     text-decoration: none;
     color: #FAFAFA;
@@ -81,3 +87,4 @@ input:focus {
     color: #FAFAFA;
     opacity: .75;
 }
+
