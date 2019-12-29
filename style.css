@@ -1,90 +1,110 @@
 /* Poppins Font  */
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
 
 body {
-    background-color: #263238;
-    font-family: Poppins, sans-serif;
+  background-color: #263238;
+  font-family: Poppins, sans-serif;
 }
 
 header {
-    display: flex;
-    justify-content: left;
-    margin: 0 3rem;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 3rem;
 }
 
 .logo-name {
-    font-family: Poppins, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 .logo {
-    width: 30px;
-    height: 30px;
-    margin-right: 0.7rem;
+  width: 30px;
+  height: 30px;
+  margin-right: 0.7rem;
 }
 
 .logo-name a {
-    text-decoration: none;
-    color: #FAFAFA;
-    font-size: 24px;
+  text-decoration: none;
+  color: #fafafa;
+  font-size: 24px;
+}
+
+.logos {
+  margin-right: auto;
 }
 
 section {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100vw;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.conversion {
+  width: auto;
+  font-weight: 100;
+  font-size: 2rem;
+  text-align: center;
+  color: #fafafa;
 }
 
 .focus {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .focus select {
-    width: 12rem;
-    height: 5rem;
-    border-radius: 12px;
-    font-size: 48px;
-    text-align: center;
-    border-style: none;
-    margin: 0 1rem;
-    font-weight: 200;
+  width: 12rem;
+  height: 5rem;
+  border-radius: 12px;
+  font-size: 48px;
+  text-align: center;
+  border-style: none;
+  margin: 0 1rem;
+  font-weight: 200;
 }
 
 input {
-    width: 5rem;
-    height: 5rem;
-    border-radius: 12px;
-    font-size: 48px;
-    text-align: center;
-    border-style: none;
-    margin: 0 1rem;
-    font-weight: 200;
-    transition: width 0.25s;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 12px;
+  font-size: 48px;
+  text-align: center;
+  border-style: none;
+  margin: 0 1rem;
+  font-weight: 200;
+  transition: width 0.25s;
 }
 
 select:hover {
-    cursor: pointer;
-    background-color:lightgrey;
+  cursor: pointer;
+  background-color: lightgrey;
 }
 
 option {
-    text-align: center;
+  text-align: center;
 }
 
 .coin-input {
-    display: inline-block;
+  display: inline-block;
 }
 
 input:focus {
-    outline: none;
+  outline: none;
 }
 
 .equal {
-    font-size: 48px;
-    padding: 0 1rem;
-    color: #FAFAFA;
-    opacity: .75;
+  font-size: 48px;
+  padding: 0 1rem;
+  color: #fafafa;
+  opacity: 0.75;
 }
 
+footer {
+  margin: 0 3rem;
+}
+
+footer span {
+  color: #fafafa;
+}
