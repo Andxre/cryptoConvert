@@ -54,6 +54,14 @@ section {
   justify-content: center;
 }
 
+.left {
+  display: flex;
+}
+
+.right {
+  display: flex;
+}
+
 .focus select {
   width: 12rem;
   height: 5rem;
@@ -107,4 +115,41 @@ footer {
 
 footer span {
   color: #fafafa;
+}
+
+@media screen and (max-width: 900px) {
+  section {
+    transform: scale(0.6);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  section {
+    flex-direction: column;
+  }
+
+  header {
+    display: inline-flex;
+  }
+
+  .focus {
+    flex-direction: column;
+  }
+
+  .logos {
+    display: flex;
+    margin-right: 1rem;
+  }
+
+  .conversion {
+    font-size: 24px;
+  }
+
+  header {
+    transform: scale(0.9);
+  }
+
+  section {
+    transform: scale(0.52);
+  }
 }
