@@ -117,9 +117,13 @@ footer span {
   color: #fafafa;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 1100px) {
   section {
     transform: scale(0.6);
+  }
+
+  .conversion {
+    font-size: 24px;
   }
 }
 
