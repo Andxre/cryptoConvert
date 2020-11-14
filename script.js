@@ -7,11 +7,11 @@ let currentCoin = "bitcoin";
 
 // Functions
 function makeAjaxCall(url, methodType) {
-  var promiseObj = new Promise(function(resolve, reject) {
+  var promiseObj = new Promise(function (resolve, reject) {
     var xhr = new XMLHttpRequest();
     xhr.open(methodType, url, true);
     xhr.send();
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (xhr.readyState === 4) {
         if (xhr.status === 200) {
           var resp = xhr.responseText;
@@ -28,13 +28,13 @@ function makeAjaxCall(url, methodType) {
 
 function loadCoins() {
   makeAjaxCall(listURL, "GET")
-    .then(data => {
+    .then((data) => {
       for (let i = 0; i < 10; i++) {
         if (data[i]["symbol"] != "usdt") {
           // Don't Include tether
           let coin = {
             name: data[i]["id"],
-            id: data[i]["symbol"]
+            id: data[i]["symbol"],
           };
           coins.push(coin);
         }
@@ -86,7 +86,6 @@ function increaseSize(firstLength, secondLength, first, second) {
 }
 
 function coinChange() {
-  console.log("Called");
   let first = "coin-input";
   let second = "currency-input";
   let quantity = document.getElementById(first).value;
@@ -100,7 +99,7 @@ function coinChange() {
     return;
   }
   let result = makeAjaxCall(url + currentCoin, "GET")
-    .then(result => {
+    .then((result) => {
       getCurrentPrice(result, quantity);
     }, errorHandler)
     .then(() => {
@@ -122,7 +121,7 @@ function currencyChange() {
     return;
   }
   let result = makeAjaxCall(url + currentCoin, "GET")
-    .then(result => {
+    .then((result) => {
       getCoinValue(result, enteredPrice);
     }, errorHandler)
     .then(() => {
@@ -148,7 +147,7 @@ document.getElementById("currency-input").addEventListener("input", () => {
 document.getElementById("current-coin").addEventListener("change", () => {
   document.getElementById("currency-input").value = "..."; // Awaiting Response
   let symbol = document.getElementById("current-coin").value;
-  let coinObj = coins.find(coin => {
+  let coinObj = coins.find((coin) => {
     return coin.id == symbol.toLowerCase();
   });
   currentCoin = coinObj["name"];
@@ -159,7 +158,6 @@ document.getElementById("current-coin").addEventListener("change", () => {
 loadCoins();
 init();
 setInterval(coinChange, 30000); // Check if price updates every 30 seconds
-console.log("Initialized");
 
 /* 
 TODO
